@@ -1,0 +1,22 @@
+FOTOS REALES DE INGREDIENTES
+════════════════════════════
+
+Por defecto cada ingrediente se dibuja con una lámina vectorial.
+Para usar tus fotos:
+
+1. Guarda cada foto en esta carpeta como  <id>.jpg
+   Formato recomendado: cuadrada o vertical (1:1.16), 800x930 px.
+
+2. Añade el id al archivo manifest.json, por ejemplo:
+
+   ["vainilla", "lavanda", "limon", "rosa"]
+
+   Solo se piden las fotos que estén listadas, así que
+   no se generan errores 404 por las que falten.
+
+IDS DISPONIBLES
+───────────────
+vainilla   lavanda    limon      canela     toronja
+mandarina  ambar      menta      cuero      sandalo
+cedro      pimienta   bergamota  almizcle   jengibre
+marinas    salvia     rosa       manzana    pachuli

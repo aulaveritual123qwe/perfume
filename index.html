@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MANTARO — Crea tu propia esencia</title>
+<meta name="description" content="MANTARO. Fragancias que cuentan historias. Crea tu propia esencia con ingredientes naturales, hecha a mano en Lima, Perú.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@200;300;400;500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=9">
+</head>
+<body class="is-loading">
+
+<!-- ═══════════ CORTINA DE CARGA ═══════════ -->
+<div class="curtain" id="curtain">
+  <span class="curtain-word" id="curtainWord">MANTARO</span>
+  <span class="curtain-sub">Lima, Perú</span>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="sunlight" aria-hidden="true"><i class="beam"></i><i class="beam beam-2"></i></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#" data-go="home"><span class="brand-type">MANTARO</span></a>
+
+  <nav class="nav-links" aria-label="Principal">
+    <a href="#" data-go="home">Perfumes</a>
+    <a href="#" data-go="ingredientes">Ingredientes</a>
+    <a href="#" data-go="home">Redes</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="icon-btn" id="searchBtn" aria-label="Buscar">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.4" stroke="currentColor" stroke-width="1.1"/><path d="m16 16 4.4 4.4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+    </button>
+    <button class="icon-btn" id="cartBtn" aria-label="Abrir bolsa">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M9.5 10V6.8a2.5 2.5 0 0 1 5 0V10" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+      <span class="cart-count" id="cartCount" data-empty="true">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════ BARRA DE PROGRESO ═══════════ -->
+<div class="stepbar" id="stepbar" hidden>
+  <ol class="steps">
+    <li data-step="1"><span class="s-label">1. Esencia principal</span><i class="s-dot"></i></li>
+    <li data-step="2"><span class="s-label">2. Esencias extra</span><i class="s-dot"></i></li>
+    <li data-step="3"><span class="s-label">3. Tu esencia</span><i class="s-dot"></i></li>
+  </ol>
+  <span class="steps-rail"><i class="steps-fill" id="stepsFill"></i></span>
+</div>
+
+<main id="stage">
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANTALLA · INICIO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="screen is-active" data-screen="home">
+
+  <div class="hero">
+    <div class="hero-copy">
+      <h1 class="display split" data-split="chars">Crea tu propia esencia</h1>
+      <span class="rule" aria-hidden="true"></span>
+      <p class="kicker fade" style="--d:.5s">Fragancias que<br>cuentan historias</p>
+      <button class="btn btn-line fade" style="--d:.62s" data-go="genero">
+        <span>Comenzar</span>
+        <svg class="arrow" viewBox="0 0 30 10" fill="none" aria-hidden="true"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+      </button>
+    </div>
+
+    <div class="hero-foot">
+      <span class="tag">Lima, Perú</span><span class="tag-rule"></span>
+      <span class="tag tag-right">Tu historia en una fragancia</span>
+    </div>
+  </div>
+
+  <!-- pilares -->
+  <div class="pillars">
+    <article class="pillar reveal">
+      <span class="pillar-art" data-art="madera"></span>
+      <h3>Naturales</h3><p>Ingredientes<br>de alta calidad</p>
+    </article>
+    <article class="pillar reveal" style="--d:.12s">
+      <span class="pillar-art" data-art="jazmin"></span>
+      <h3>Únicas</h3><p>Crea una fragancia<br>a tu medida</p>
+    </article>
+    <article class="pillar reveal" style="--d:.24s">
+      <span class="pillar-art" data-art="ambar"></span>
+      <h3>Reales</h3><p>Inspiradas<br>en lo cotidiano</p>
+    </article>
+  </div>
+
+  <!-- ingredientes que inspiran -->
+  <div class="inspira" id="ingredientes">
+    <div class="inspira-copy">
+      <h2 class="display split" data-split="lines">Ingredientes<br>que inspiran</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <p class="kicker">Descubre las materias primas<br>de nuestras fragancias</p>
+      <button class="btn btn-text" data-go="paso1">
+        <span>Explorar</span>
+        <svg class="arrow" viewBox="0 0 30 10" fill="none" aria-hidden="true"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+      </button>
+    </div>
+    <div class="inspira-reel" id="inspiraReel" aria-hidden="true"></div>
+    <span class="inspira-count">01 <i>/ 03</i></span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANTALLA · ¿PARA QUIÉN?
+     ═══════════════════════════════════════════════════════════ -->
+<section class="screen" data-screen="genero">
+  <p class="eyebrow">Crea tu propia esencia</p>
+  <h2 class="display display-lg split" data-split="chars">¿Para quién?</h2>
+  <span class="rule rule-center" aria-hidden="true"></span>
+  <p class="eyebrow eyebrow-soft">Mismas fragancias. Distintas historias.</p>
+
+  <div class="gender-grid">
+    <button class="gender" data-gender="hombre">
+      <span class="gender-art" data-art="hombre"></span>
+      <span class="gender-body">
+        <span class="gender-name">Hombre</span>
+        <span class="rule rule-center"></span>
+        <span class="gender-sub">Fuerza en cada nota</span>
+        <span class="pill"><span>Seleccionar</span>
+          <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+        </span>
+      </span>
+    </button>
+
+    <button class="gender" data-gender="mujer">
+      <span class="gender-art" data-art="mujer"></span>
+      <span class="gender-body">
+        <span class="gender-name">Mujer</span>
+        <span class="rule rule-center"></span>
+        <span class="gender-sub">Naturaleza en equilibrio</span>
+        <span class="pill"><span>Seleccionar</span>
+          <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+        </span>
+      </span>
+    </button>
+  </div>
+
+  <div class="screen-foot">
+    <button class="btn btn-back" data-go="home">
+      <svg class="arrow arrow-l" viewBox="0 0 30 10" fill="none"><path d="M30 5H3M7 1 2.5 5 7 9" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Volver</span>
+    </button>
+    <p class="quote">“Una fragancia,<br>infinitas versiones de ti.”</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANTALLA · PASO 1
+     ═══════════════════════════════════════════════════════════ -->
+<section class="screen" data-screen="paso1">
+  <div class="screen-top">
+    <button class="btn btn-back" data-go="genero">
+      <svg class="arrow arrow-l" viewBox="0 0 30 10" fill="none"><path d="M30 5H3M7 1 2.5 5 7 9" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Volver</span>
+    </button>
+    <span class="who" id="who1">Hombre</span>
+  </div>
+
+  <p class="eyebrow">Paso 1 de 3</p>
+  <h2 class="display split" data-split="chars">Elige tu esencia principal</h2>
+  <p class="lede">Selecciona hasta 3 ingredientes que mejor te representen<br>para tu esencia principal.</p>
+
+  <div class="grid" id="grid1"></div>
+
+  <div class="screen-foot screen-foot-split">
+    <button class="btn btn-back" data-go="genero">
+      <svg class="arrow arrow-l" viewBox="0 0 30 10" fill="none"><path d="M30 5H3M7 1 2.5 5 7 9" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Volver</span>
+    </button>
+    <button class="btn btn-box" id="next1" disabled>
+      <span>Continuar</span>
+      <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+    </button>
+  </div>
+  <p class="quote quote-center">“Ingredientes que cuentan tu historia.”</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANTALLA · PASO 2
+     ═══════════════════════════════════════════════════════════ -->
+<section class="screen" data-screen="paso2">
+  <div class="screen-top">
+    <button class="btn btn-back" data-go="paso1">
+      <svg class="arrow arrow-l" viewBox="0 0 30 10" fill="none"><path d="M30 5H3M7 1 2.5 5 7 9" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Volver</span>
+    </button>
+    <span class="who" id="who2">Hombre</span>
+  </div>
+
+  <p class="eyebrow">Paso 2 de 3</p>
+  <h2 class="display split" data-split="chars">Añade tus esencias extra</h2>
+  <p class="lede">Elige hasta 2 esencias adicionales. Se entregarán en envases independientes,<br>sin mezclarse con los 3 ingredientes de tu frasco principal.</p>
+
+  <div class="chosen" id="chosen2"></div>
+  <div class="grid" id="grid2"></div>
+
+  <div class="screen-foot screen-foot-split">
+    <button class="btn btn-back" data-go="paso1">
+      <svg class="arrow arrow-l" viewBox="0 0 30 10" fill="none"><path d="M30 5H3M7 1 2.5 5 7 9" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Volver</span>
+    </button>
+    <button class="btn btn-box" id="next2">
+      <span>Continuar</span>
+      <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+    </button>
+  </div>
+  <p class="quote quote-center">“Lo que acompaña también define.”</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PANTALLA · PASO 3 · PERSONALIZACIÓN
+     ═══════════════════════════════════════════════════════════ -->
+<section class="screen" data-screen="paso3">
+  <div class="screen-top">
+    <button class="btn btn-back" data-go="paso2">
+      <svg class="arrow arrow-l" viewBox="0 0 30 10" fill="none"><path d="M30 5H3M7 1 2.5 5 7 9" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Volver</span>
+    </button>
+    <span class="who" id="who3">Hombre</span>
+  </div>
+
+  <p class="eyebrow">Paso 3 de 3</p>
+  <h2 class="display split" data-split="chars">Personaliza tu fragancia</h2>
+  <p class="lede">Completa los detalles que irán impresos en tu etiqueta.</p>
+
+  <div class="personaliza">
+    <div class="label-preview">
+      <div class="bottle-stage">
+        <img src="img/perfine_sin_fondo.png" alt="Frasco MANTARO de 50 ml">
+        <div class="label-live" aria-hidden="true">
+          <strong id="labelName">TU NOMBRE</strong>
+          <span>50ml&nbsp;&nbsp;1,7 FL.OZ.</span>
+          <span class="label-type">eau de parfum / vaporisateur<br>natural spray</span>
+          <span>Created by: <b id="labelCreator">Tu nombre</b></span>
+          <span>For: <b id="labelDedication">Tu dedicatoria</b></span>
+          <small>Hand made - <b>MANTARO</b> - Lima Perú</small>
+        </div>
+      </div>
+    </div>
+
+    <form class="personal-form" id="personalForm">
+      <label class="personal-field">
+        <span>Nombre de la fragancia *</span>
+        <input id="fragName" maxlength="30" required placeholder="Ej. Amanecer, Luna, 1987…">
+        <small><b id="fragCount">0</b>/30</small>
+      </label>
+      <label class="personal-field">
+        <span>Creado por (opcional)</span>
+        <input id="fragCreator" maxlength="30" placeholder="Ej. Tu nombre, un apodo…">
+        <small><b id="creatorCount">0</b>/30</small>
+      </label>
+      <label class="personal-field">
+        <span>Dedicatoria (opcional)</span>
+        <textarea id="fragDedication" maxlength="60" rows="3" placeholder="Ej. Para alguien especial, una frase…"></textarea>
+        <small><b id="dedicationCount">0</b>/60</small>
+      </label>
+      <button class="btn btn-box personalize-next" type="submit">
+        <span>Continuar</span>
+        <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════ RESULTADO · TU ESENCIA ═══════════ -->
+<section class="screen" data-screen="resultado">
+  <div class="screen-top">
+    <button class="btn btn-back" data-go="paso3">
+      <svg class="arrow arrow-l" viewBox="0 0 30 10" fill="none"><path d="M30 5H3M7 1 2.5 5 7 9" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Volver</span>
+    </button>
+    <span class="who" id="whoResult">Hombre</span>
+  </div>
+
+  <p class="eyebrow">Tu creación</p>
+  <h2 class="display split" data-split="chars">Tu esencia</h2>
+
+  <div class="final">
+    <div class="final-flacon">
+      <img src="img/perfine_sin_fondo.png" alt="Frasco personalizado MANTARO de 50 ml">
+    </div>
+
+    <div class="final-info">
+      <p class="eyebrow">Edición personal</p>
+      <h3 class="final-name" id="finalName">—</h3>
+      <span class="rule"></span>
+      <p class="final-desc" id="finalDesc"></p>
+
+      <div class="block">
+        <h4>Fórmula principal · combinada en el frasco de 50 ml</h4>
+        <ul class="formula" id="finalFormula"></ul>
+      </div>
+
+      <div class="block extras-block" id="extrasBlock">
+        <h4>Esencias extra · se entregan en envases independientes</h4>
+        <div class="extra-vials" id="extraVials"></div>
+      </div>
+
+      <div class="block">
+        <h4>Carácter</h4>
+        <div class="traits" id="finalTraits"></div>
+      </div>
+
+      <div class="buy">
+        <label class="request-field" for="requestPhone">
+          <span>Número de contacto *</span>
+          <input id="requestPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej. +51 999 888 777" required>
+        </label>
+        <div class="buy-row">
+          <button class="btn btn-solid" id="addCart" type="button">
+            <span>Solicitar pedido</span>
+            <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+          </button>
+          <button class="btn btn-line" id="restart"><span>Crear otra</span></button>
+        </div>
+        <p class="fine">Maceración de 6 semanas · etiqueta impresa en el laboratorio · hecho a mano en Lima</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ PIE ═══════════ -->
+<footer class="foot">
+  <span class="tag">Lima, Perú</span>
+  <span class="foot-rule"></span>
+  <span class="tag">Mantaro</span>
+</footer>
+
+<!-- ═══════════ BOLSA ═══════════ -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Bolsa" hidden>
+  <header class="drawer-top">
+    <h3>Tu bolsa</h3>
+    <button class="icon-btn" id="drawerClose" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+  </header>
+  <div class="drawer-body" id="drawerBody"></div>
+  <footer class="drawer-foot">
+    <div class="checkout-form">
+      <label class="cf-field">
+        <span>Tu nombre *</span>
+        <input type="text" id="cfNombre" autocomplete="name" placeholder="¿Cómo te llamas?">
+      </label>
+      <label class="cf-field">
+        <span>WhatsApp o teléfono</span>
+        <input type="tel" id="cfTelefono" autocomplete="tel" placeholder="+51 999 888 777">
+      </label>
+    </div>
+
+    <button class="btn btn-solid btn-block" id="checkout" disabled><span>Enviar pedido</span></button>
+    <p class="fine">Recibirás la confirmación por WhatsApp y correo. Envío incluido en Lima Metropolitana.</p>
+  </footer>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js?v=3"></script>
+<script src="js/flacon.js?v=4"></script>
+<script src="js/app.js?v=14"></script>
+</body>
+</html>
