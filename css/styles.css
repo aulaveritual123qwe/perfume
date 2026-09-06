@@ -913,6 +913,183 @@ body.ready .curtain{ transform:translateY(-101%); visibility:hidden; }
   .extra-vials{ grid-template-columns:1fr; }
 }
 
+
+/* ══════════ AJUSTE RESPONSIVE · PERFUMES E INGREDIENTES ══════════ */
+.ready-perfumes .lede,
+.ingredient-info .lede{ max-width:58ch; }
+
+.ready-card{
+  min-height:clamp(560px,58vw,720px);
+}
+.ready-card img{
+  height:60%;
+  object-position:center 18%;
+}
+.ready-copy{ max-width:520px; }
+.ready-copy p{ margin:0 0 14px; }
+.ready-copy p:last-of-type{ margin-bottom:0; }
+.ingredient-note{
+  min-height:220px;
+}
+.ingredient-note h3{
+  overflow-wrap:anywhere;
+}
+
+@media (max-width:1180px){
+  .perfume-pair{ grid-template-columns:1fr; max-width:720px; }
+  .ready-card{ min-height:640px; }
+  .ready-card img{ height:58%; object-position:center 16%; }
+  .ingredient-info-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width:900px){
+  .nav{
+    display:grid;
+    grid-template-columns:1fr auto;
+    row-gap:10px;
+    padding-top:16px;
+    padding-bottom:12px;
+    background:rgba(27,22,17,.82);
+    backdrop-filter:blur(14px);
+    border-bottom-color:var(--linea);
+  }
+  .brand{ min-width:0; }
+  .brand-type{ font-size:20px; letter-spacing:.25em; }
+  .nav-links{
+    grid-column:1/-1;
+    display:flex;
+    order:3;
+    margin:0;
+    gap:18px;
+    overflow-x:auto;
+    padding:2px 0 0;
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{ display:none; }
+  .nav-links a{
+    min-height:34px;
+    display:inline-flex;
+    align-items:center;
+    white-space:nowrap;
+    font-size:9px;
+    letter-spacing:.18em;
+  }
+  .nav-actions{ margin-left:0; }
+  .screen{ padding-top:142px; }
+  .hero{ min-height:calc(100svh - 190px); }
+  .ready-perfumes,
+  .ingredient-info,
+  .inspira{
+    padding-top:64px;
+    padding-bottom:72px;
+  }
+  .ready-perfumes .display,
+  .ingredient-info .display{
+    max-width:10ch;
+    margin-inline:auto;
+    text-align:center;
+  }
+  .ready-card{
+    min-height:auto;
+    padding:0;
+    background:#18120e;
+    display:block;
+  }
+  .ready-card img{
+    position:relative;
+    height:auto;
+    aspect-ratio:4/3.25;
+    object-position:center;
+  }
+  .ready-card::after{
+    background:linear-gradient(180deg, rgba(11,8,6,0) 0%, rgba(11,8,6,.18) 42%, rgba(11,8,6,.98) 100%);
+  }
+  .ready-kicker{
+    top:22px;
+    left:22px;
+    font-size:9px;
+    letter-spacing:.24em;
+  }
+  .ready-copy{
+    position:relative;
+    z-index:1;
+    padding:28px 24px 30px;
+  }
+  .ready-copy h3{ font-size:34px; }
+  .ready-sub{
+    font-size:10px;
+    letter-spacing:.2em;
+    margin-bottom:18px;
+  }
+  .ready-copy p{
+    font-size:14px;
+    line-height:1.7;
+  }
+  .ready-order{
+    width:100%;
+    justify-content:center;
+  }
+}
+
+@media (max-width:680px){
+  :root{ --pad:22px; }
+  .nav{ gap:8px; }
+  .brand-type{ font-size:18px; letter-spacing:.2em; }
+  .icon-btn{ width:36px; height:36px; }
+  .screen{ padding-top:138px; }
+  .hero-copy h1{ max-width:8ch; }
+  .pillars{ padding-top:48px; padding-bottom:48px; gap:32px; }
+  .pillar{ padding-bottom:30px; }
+  .ready-perfumes,
+  .ingredient-info,
+  .inspira{
+    margin-inline:calc(var(--pad) * -1);
+  }
+  .perfume-pair{ gap:18px; margin-top:34px; }
+  .ready-card{ border-left:0; border-right:0; }
+  .ready-card img{ aspect-ratio:4/3.55; }
+  .ready-copy{ padding:24px 22px 28px; }
+  .ready-copy h3{ font-size:31px; letter-spacing:.09em; }
+  .ready-sub{ line-height:1.65; }
+  .btn-compact{
+    width:100%;
+    justify-content:center;
+    margin-top:18px;
+  }
+  .inspira-copy .btn-text{
+    min-height:44px;
+    align-items:center;
+  }
+  .inspira-reel{
+    height:260px;
+    gap:10px;
+    margin-top:6px;
+  }
+  .ingredient-info-grid{
+    grid-template-columns:1fr;
+    display:grid;
+    gap:10px;
+    background:transparent;
+    border:0;
+  }
+  .ingredient-note{
+    min-height:auto;
+    padding:22px;
+    border:1px solid rgba(44,36,28,.12);
+  }
+  .ingredient-dot{ margin-bottom:16px; }
+  .ingredient-note h3{ font-size:26px; }
+  .ingredient-meta{ font-size:8.5px; letter-spacing:.17em; }
+}
+
+@media (max-width:390px){
+  :root{ --pad:18px; }
+  .brand-type{ font-size:16px; letter-spacing:.17em; }
+  .nav-links{ gap:14px; }
+  .nav-links a{ font-size:8.5px; letter-spacing:.15em; }
+  .ready-copy h3{ font-size:28px; }
+  .ingredient-note h3{ font-size:24px; }
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.001ms !important; animation-iteration-count:1 !important;
