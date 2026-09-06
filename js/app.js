@@ -366,6 +366,11 @@ function pintarFinal(){
   const nombrePersonal = E.etiqueta.nombre || f.nombre;
   $('#finalName').textContent = nombrePersonal;
   $('#finalDesc').textContent = f.texto;
+  $('#finalBlend').innerHTML = f.filas.map((r, k) => `
+    <li class="blend-row" style="--c:${r.ing.color};--bd:${(k * .08 + .18).toFixed(2)}s">
+      <span class="blend-name">${r.ing.nombre}</span>
+      <span class="blend-line"><i></i></span>
+    </li>`).join('');
   $('#finalTraits').innerHTML = f.caracter.map((t, k) =>
     `<span class="trait" style="animation-delay:${(k * .07 + .2).toFixed(2)}s">${t}</span>`).join('');
   const extras = E.extra.map(ing);
