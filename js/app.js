@@ -264,6 +264,51 @@ function pintarGrid2(){
   }).join('');
 }
 
+
+function pintarInfoIngredientes(){
+  const cont = $('#ingredientInfoGrid');
+  if (!cont) return;
+  const lista = INGREDIENTES.filter(i => !i.extra);
+  cont.innerHTML = lista.map(i => `
+    <article class="ingredient-note" style="--c:${i.color}">
+      <span class="ingredient-dot"></span>
+      <h3>${i.nombre}</h3>
+      <p class="ingredient-meta">${CAPA_LABEL[i.capa]} · ${i.sub}</p>
+      <p>${i.nota}</p>
+    </article>`).join('');
+}
+
+function irASeccion(id){
+  const mover = () => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 86;
+    window.scrollTo({ top, behavior: LENTO ? 'auto' : 'smooth' });
+  };
+  if (E.pantalla !== 'home'){
+    ir('home');
+    setTimeout(mover, LENTO ? 80 : 760);
+    return;
+  }
+  mover();
+}
+
+function agregarPerfumeListo(nombre){
+  const es31 = nombre === 'MANTARO 31';
+  E.bolsa.push({
+    id: 'ready' + Date.now(),
+    nombre,
+    ml: 50,
+    color: es31 ? '#b9ae82' : '#b996aa',
+    notas: es31
+      ? 'Perfume listo: fuerza sobria, profunda y elegante.'
+      : 'Perfume listo: elegancia delicada, íntima y contemporánea.'
+  });
+  guardar.poner('mantaro.bolsa', E.bolsa);
+  pintarBolsa();
+  abrirBolsa();
+  avisar(`${nombre} está listo para solicitar.`);
+}
 /* ══════════ SELECCIÓN ══════════ */
 
 function sacudir(card){
@@ -580,16 +625,24 @@ function avisar(txt){
 /* ══════════ BOTONES DE NAVEGACIÓN ══════════ */
 
 document.addEventListener('click', e => {
+  const scrollTarget = e.target.closest('[data-scroll]');
+  if (scrollTarget){
+    e.preventDefault();
+    irASeccion(scrollTarget.dataset.scroll);
+    return;
+  }
+
+  const ready = e.target.closest('[data-ready]');
+  if (ready){
+    e.preventDefault();
+    agregarPerfumeListo(ready.dataset.ready);
+    return;
+  }
+
   const b = e.target.closest('[data-go]');
   if (!b) return;
   e.preventDefault();
-  const destino = b.dataset.go;
-  if (destino === 'ingredientes'){
-    ir('home');
-    setTimeout(() => $('#ingredientes').scrollIntoView({ behavior:'smooth', block:'start' }), 60);
-    return;
-  }
-  ir(destino);
+  ir(b.dataset.go);
 });
 
 $$('.gender').forEach(b => b.addEventListener('click', () => {
@@ -662,6 +715,7 @@ window.addEventListener('scroll', () => {
   });
 
   pintarBolsa();
+  pintarInfoIngredientes();
   pintarGrid1();
   refrescarFrasco();
   actualizarEtiqueta();
@@ -669,6 +723,8 @@ window.addEventListener('scroll', () => {
 
   $$('.reveal').forEach(el => observador.observe(el));
   observador.observe($('.inspira'));
+  const info = $('.ingredient-info'); if (info) observador.observe(info);
+  $$('.ready-perfumes').forEach(el => observador.observe(el));
 
   /* levantar la cortina */
   setTimeout(() => {

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@200;300;400;500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=11">
+<link rel="stylesheet" href="css/styles.css?v=12">
 </head>
 <body class="is-loading">
 
@@ -26,8 +26,8 @@
   <a class="brand" href="#" data-go="home"><span class="brand-type">MANTARO</span></a>
 
   <nav class="nav-links" aria-label="Principal">
-    <a href="#" data-go="home">Perfumes</a>
-    <a href="#" data-go="ingredientes">Ingredientes</a>
+    <a href="#perfumes" data-scroll="perfumes">Perfumes</a>
+    <a href="#ingredientes-info" data-scroll="ingredientes-info">Ingredientes</a>
     <a href="#" data-go="home">Redes</a>
   </nav>
 
@@ -92,20 +92,71 @@
     </article>
   </div>
 
+
+  <!-- perfumes listos -->
+  <section class="ready-perfumes reveal" id="perfumes">
+    <p class="eyebrow">Dos esencias · dos personalidades</p>
+    <h2 class="display split" data-split="chars">Una firma Mantaro</h2>
+    <span class="rule rule-center" aria-hidden="true"></span>
+    <p class="lede">Fragancias creadas en nuestro laboratorio. Mismas raíces, distintas historias.</p>
+
+    <div class="perfume-pair">
+      <article class="ready-card">
+        <span class="ready-kicker">Para él</span>
+        <img src="img/IMG_5994.PNG" alt="Perfume MANTARO 31 para él">
+        <div class="ready-copy">
+          <h3>MANTARO 31</h3>
+          <p class="ready-sub">Fuerza que no necesita presentación.</p>
+          <p>Una fragancia creada para el hombre que deja presencia sin necesidad de llamar la atención. Combina carácter, profundidad y una elegancia sobria que permanece en la piel.</p>
+          <p>Su composición es confidencial. Solo quienes la llevan conocen aquello que la hace única.</p>
+          <button class="btn btn-line ready-order" type="button" data-ready="MANTARO 31">
+            <span>Solicitar</span>
+            <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <article class="ready-card">
+        <span class="ready-kicker">Para ella</span>
+        <img src="img/IMG_5995.PNG" alt="Perfume MANTARO 02 para ella">
+        <div class="ready-copy">
+          <h3>MANTARO 02</h3>
+          <p class="ready-sub">Elegancia que permanece.</p>
+          <p>Una fragancia creada para una mujer que no necesita exagerar para hacerse notar. Expresa una feminidad contemporánea, delicada y segura.</p>
+          <p>Su composición es confidencial, desarrollada para convertirse en una parte íntima de quien la lleva.</p>
+          <button class="btn btn-line ready-order" type="button" data-ready="MANTARO 02">
+            <span>Solicitar</span>
+            <svg class="arrow" viewBox="0 0 30 10" fill="none"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
   <!-- ingredientes que inspiran -->
-  <div class="inspira" id="ingredientes">
+  <div class="inspira" id="ingredientes-info">
     <div class="inspira-copy">
       <h2 class="display split" data-split="lines">Ingredientes<br>que inspiran</h2>
       <span class="rule" aria-hidden="true"></span>
       <p class="kicker">Descubre las materias primas<br>de nuestras fragancias</p>
-      <button class="btn btn-text" data-go="paso1">
+      <button class="btn btn-text" data-scroll="materias">
         <span>Explorar</span>
+        <svg class="arrow" viewBox="0 0 30 10" fill="none" aria-hidden="true"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
+      </button>
+      <button class="btn btn-line btn-compact" data-go="paso1">
+        <span>Crear fragancia</span>
         <svg class="arrow" viewBox="0 0 30 10" fill="none" aria-hidden="true"><path d="M0 5h27M23 1l4.5 4-4.5 4" stroke="currentColor" stroke-width="1"/></svg>
       </button>
     </div>
     <div class="inspira-reel" id="inspiraReel" aria-hidden="true"></div>
     <span class="inspira-count">01 <i>/ 03</i></span>
   </div>
+
+  <section class="ingredient-info reveal" id="materias">
+    <p class="eyebrow">Materias primas</p>
+    <h2 class="display split" data-split="chars">Información de ingredientes</h2>
+    <span class="rule rule-center" aria-hidden="true"></span>
+    <div class="ingredient-info-grid" id="ingredientInfoGrid"></div>
+  </section>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -376,6 +427,6 @@
 
 <script src="js/data.js?v=3"></script>
 <script src="js/flacon.js?v=4"></script>
-<script src="js/app.js?v=16"></script>
+<script src="js/app.js?v=17"></script>
 </body>
 </html>
