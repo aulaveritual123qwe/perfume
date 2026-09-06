@@ -1090,6 +1090,69 @@ body.ready .curtain{ transform:translateY(-101%); visibility:hidden; }
   .ready-copy h3{ font-size:28px; }
   .ingredient-note h3{ font-size:24px; }
 }
+
+/* ══════════ AJUSTE MÓVIL · ENCABEZADO DEL CONFIGURADOR ══════════ */
+@media (max-width:900px){
+  .stepbar{
+    top:118px;
+    width:min(360px,78vw);
+  }
+  .screen:not([data-screen="home"]){
+    padding-top:188px;
+  }
+  .screen-top{
+    margin:0 0 28px;
+    padding:0;
+    min-height:32px;
+  }
+  .screen-top .btn-back{
+    min-height:32px;
+    padding:0;
+    gap:12px;
+  }
+  .screen-top .btn-back .arrow{
+    width:24px;
+  }
+  .who{
+    max-width:42%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-align:right;
+  }
+}
+
+@media (max-width:680px){
+  .stepbar{
+    top:126px;
+    left:var(--pad);
+    right:var(--pad);
+    width:auto;
+    transform:none;
+  }
+  .steps-rail{
+    margin-top:0;
+  }
+  .screen:not([data-screen="home"]){
+    padding-top:196px;
+  }
+  .screen-top{
+    margin-bottom:30px;
+  }
+  [data-screen="paso1"] .eyebrow,
+  [data-screen="paso2"] .eyebrow,
+  [data-screen="paso3"] .eyebrow,
+  [data-screen="resultado"] .eyebrow{
+    margin-bottom:16px;
+  }
+}
+
+@media (max-width:390px){
+  .screen:not([data-screen="home"]){
+    padding-top:188px;
+  }
+  .stepbar{ top:120px; }
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.001ms !important; animation-iteration-count:1 !important;
