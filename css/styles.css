@@ -1091,6 +1091,57 @@ body.ready .curtain{ transform:translateY(-101%); visibility:hidden; }
   .ingredient-note h3{ font-size:24px; }
 }
 
+
+/* ══════════ INICIO · REDES SOCIALES ══════════ */
+.social-section{
+  margin:0 calc(var(--pad) * -1);
+  padding:clamp(64px,8vw,110px) var(--pad);
+  background:linear-gradient(160deg,#201914,#12100d);
+  text-align:center;
+}
+.social-links{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,280px));
+  justify-content:center;
+  gap:14px;
+  margin-top:clamp(30px,4vw,46px);
+}
+.social-link{
+  min-height:112px;
+  padding:24px 26px;
+  display:grid;
+  align-content:center;
+  gap:8px;
+  border:1px solid var(--linea-2);
+  background:rgba(242,236,226,.035);
+  transition:background .45s var(--ease), color .45s var(--ease), transform .55s var(--out), border-color .45s var(--ease);
+}
+.social-link:hover{
+  transform:translateY(-4px);
+  background:var(--crema);
+  color:#241d17;
+  border-color:var(--crema);
+}
+.social-link span{
+  font-family:var(--serif);
+  font-size:30px;
+  line-height:1;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.social-link small{
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:currentColor;
+  opacity:.62;
+}
+
+@media (max-width:680px){
+  .social-links{ grid-template-columns:1fr; }
+  .social-link{ min-height:96px; }
+  .social-link span{ font-size:26px; }
+}
 /* ══════════ AJUSTE MÓVIL · ENCABEZADO DEL CONFIGURADOR ══════════ */
 @media (max-width:900px){
   .stepbar{
