@@ -29,7 +29,7 @@ const MAX_EXTRA = 2;
    WHATSAPP_NUMERO: sólo dígitos con código de país, sin "+" ni espacios. */
 const WHATSAPP_NUMERO = '51940426480';
 const CORREO_PEDIDOS = 'mantaro.lab@gmail.com';
-const WEB3FORMS_KEY = 'e10e46f4-da2c-435c-9beb-9e1f7b629a71';
+const WEB3FORMS_KEY = '4f042b85-ab4c-438f-b12a-c6596e65e6ec';
 
 const FAM_ADJ = {
   dulce:'dulce', floral:'floral', citrico:'cítrica', especia:'especiada',
@@ -567,14 +567,7 @@ $('#checkout').addEventListener('click', async () => {
   try {
     await enviarPorCorreo(nombre, telefono, resumen);
 
-    /* whatsapp: abre el chat con el mensaje redactado — WhatsApp exige
-       que sea el propio visitante quien lo envíe, ningún sitio puede
-       mandarlo por él sin la API oficial de Meta */
-    if (WHATSAPP_NUMERO){
-      window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(resumen)}`, '_blank', 'noopener');
-    }
-
-    avisar(`Gracias, ${nombre.split(' ')[0]} — tu pedido ya llegó a MANTARO`);
+    avisar(`Gracias, ${nombre.split(' ')[0]} — tu pedido fue enviado a MANTARO`);
     E.bolsa = [];
     guardar.poner('mantaro.bolsa', E.bolsa);
     pintarBolsa();
