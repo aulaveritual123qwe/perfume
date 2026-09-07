@@ -29,7 +29,7 @@ const MAX_EXTRA = 2;
    WHATSAPP_NUMERO: sólo dígitos con código de país, sin "+" ni espacios. */
 const WHATSAPP_NUMERO = '51940426480';
 const CORREO_PEDIDOS = 'mantaro.lab@gmail.com';
-const WEB3FORMS_KEY = '6e164cac-7f10-4c0c-b1d9-47e3de85e0ac';
+const WEB3FORMS_KEY = 'e10e46f4-da2c-435c-9beb-9e1f7b629a71';
 
 const FAM_ADJ = {
   dulce:'dulce', floral:'floral', citrico:'cítrica', especia:'especiada',
@@ -515,7 +515,12 @@ function resumenPedido(nombre, telefono){
     `Nombre: ${nombre}`,
     telefono ? `Teléfono: ${telefono}` : null,
     '',
-    ...E.bolsa.map(i => `• ${i.nombre} — ${i.ml} ml\n   ${limpiarNotas(i.notas)}`)
+    ...E.bolsa.flatMap(i => [
+      `• ${i.nombre} — ${i.ml} ml`,
+      `   ${limpiarNotas(i.notas)}`,
+      i.creador ? `   Creado por: ${i.creador}` : null,
+      i.dedicatoria ? `   Dedicatoria: ${i.dedicatoria}` : null
+    ]).filter(l => l !== null)
   ].filter(l => l !== null);
   return lineas.join('\n');
 }
